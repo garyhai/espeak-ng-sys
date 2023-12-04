@@ -44,7 +44,6 @@ fn main() {
     }
 
     let files = [
-        "espeak-ng/src/libespeak-ng/common.c",
         "espeak-ng/src/libespeak-ng/mnemonics.c",
         "espeak-ng/src/libespeak-ng/error.c",
         "espeak-ng/src/libespeak-ng/ieee80.c",
@@ -53,7 +52,6 @@ fn main() {
         "espeak-ng/src/libespeak-ng/dictionary.c",
         "espeak-ng/src/libespeak-ng/encoding.c",
         "espeak-ng/src/libespeak-ng/intonation.c",
-        "espeak-ng/src/libespeak-ng/langopts.c",
         "espeak-ng/src/libespeak-ng/numbers.c",
         "espeak-ng/src/libespeak-ng/phoneme.c",
         "espeak-ng/src/libespeak-ng/phonemelist.c",
@@ -66,7 +64,6 @@ fn main() {
         "espeak-ng/src/libespeak-ng/synthesize.c",
         "espeak-ng/src/libespeak-ng/tr_languages.c",
         "espeak-ng/src/libespeak-ng/translate.c",
-        "espeak-ng/src/libespeak-ng/translateword.c",
         "espeak-ng/src/libespeak-ng/voices.c",
         "espeak-ng/src/libespeak-ng/wavegen.c",
         "espeak-ng/src/libespeak-ng/speech.c",
@@ -90,8 +87,7 @@ fn main() {
         .includes(includes)
         .target(&target)
         .static_flag(true)
-        .flag("-Wno-error=implicit-function-declaration")
-        .warnings(false)
+        .flag("-w")
         .compile("espeak-ng");
 
     if env::var("TARGET").unwrap().contains("window") {
@@ -102,7 +98,6 @@ fn main() {
     } else {
         println!("cargo:rustc-link-search={}", out.join("build").display());
     }
-    println!("cargo:warning=out: {:?}", out);
 }
 
 // From https://github.com/alexcrichton/cc-rs/blob/fba7feded71ee4f63cfe885673ead6d7b4f2f454/src/lib.rs#L2462
