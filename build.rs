@@ -62,6 +62,7 @@ fn main() {
         "espeak-ng/src/libespeak-ng/ssml.c",
         "espeak-ng/src/libespeak-ng/synthdata.c",
         "espeak-ng/src/libespeak-ng/synthesize.c",
+        "espeak-ng/src/libespeak-ng/synth_mbrola.c",
         "espeak-ng/src/libespeak-ng/tr_languages.c",
         "espeak-ng/src/libespeak-ng/translate.c",
         "espeak-ng/src/libespeak-ng/voices.c",
