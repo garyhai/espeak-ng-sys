@@ -44,6 +44,7 @@ fn main() {
     }
 
     let files = [
+        "espeak-ng/src/libespeak-ng/common.c",
         "espeak-ng/src/libespeak-ng/mnemonics.c",
         "espeak-ng/src/libespeak-ng/error.c",
         "espeak-ng/src/libespeak-ng/ieee80.c",
@@ -52,6 +53,7 @@ fn main() {
         "espeak-ng/src/libespeak-ng/dictionary.c",
         "espeak-ng/src/libespeak-ng/encoding.c",
         "espeak-ng/src/libespeak-ng/intonation.c",
+        "espeak-ng/src/libespeak-ng/langopts.c",
         "espeak-ng/src/libespeak-ng/numbers.c",
         "espeak-ng/src/libespeak-ng/phoneme.c",
         "espeak-ng/src/libespeak-ng/phonemelist.c",
@@ -62,9 +64,9 @@ fn main() {
         "espeak-ng/src/libespeak-ng/ssml.c",
         "espeak-ng/src/libespeak-ng/synthdata.c",
         "espeak-ng/src/libespeak-ng/synthesize.c",
-        "espeak-ng/src/libespeak-ng/synth_mbrola.c",
         "espeak-ng/src/libespeak-ng/tr_languages.c",
         "espeak-ng/src/libespeak-ng/translate.c",
+        "espeak-ng/src/libespeak-ng/translateword.c",
         "espeak-ng/src/libespeak-ng/voices.c",
         "espeak-ng/src/libespeak-ng/wavegen.c",
         "espeak-ng/src/libespeak-ng/speech.c",
@@ -88,6 +90,7 @@ fn main() {
         .includes(includes)
         .target(&target)
         .static_flag(true)
+        .flag("-Wno-error=implicit-function-declaration")
         .flag("-w")
         .compile("espeak-ng");
 
