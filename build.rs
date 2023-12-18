@@ -100,6 +100,7 @@ fn main() {
             out.join("build").join("Release").display()
         );
     } else {
+        println!("cargo:rustc-link-search={}", out.display());
         println!("cargo:rustc-link-search={}", out.join("build").display());
     }
 }
